@@ -11,6 +11,9 @@
 		A83042E02C4079DA00150488 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83042DF2C4079DA00150488 /* ContentView.swift */; };
 		A83042E22C4079DB00150488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83042E12C4079DB00150488 /* Assets.xcassets */; };
 		A83042E52C4079DB00150488 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83042E42C4079DB00150488 /* Preview Assets.xcassets */; };
+		A830431C2C40975600150488 /* SermonVideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A830431B2C40975600150488 /* SermonVideosView.swift */; };
+		A830431E2C40981700150488 /* JuboView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A830431D2C40981700150488 /* JuboView.swift */; };
+		A83043202C40984C00150488 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A830431F2C40984C00150488 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		A83042DF2C4079DA00150488 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A83042E12C4079DB00150488 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A83042E42C4079DB00150488 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A830431B2C40975600150488 /* SermonVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SermonVideosView.swift; sourceTree = "<group>"; };
+		A830431D2C40981700150488 /* JuboView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuboView.swift; sourceTree = "<group>"; };
+		A830431F2C40984C00150488 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = ../../../Desktop/Chapter24/JRNLSwiftUI/JRNLSwiftUI/HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +57,13 @@
 		A83042DC2C4079DA00150488 /* ancios */ = {
 			isa = PBXGroup;
 			children = (
+				A830431F2C40984C00150488 /* HomeView.swift */,
 				A83042DD2C4079DA00150488 /* anciosApp.swift */,
 				A83042DF2C4079DA00150488 /* ContentView.swift */,
 				A83042E12C4079DB00150488 /* Assets.xcassets */,
 				A83042E32C4079DB00150488 /* Preview Content */,
+				A830431B2C40975600150488 /* SermonVideosView.swift */,
+				A830431D2C40981700150488 /* JuboView.swift */,
 			);
 			path = ancios;
 			sourceTree = "<group>";
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A830431E2C40981700150488 /* JuboView.swift in Sources */,
 				A83042E02C4079DA00150488 /* ContentView.swift in Sources */,
+				A830431C2C40975600150488 /* SermonVideosView.swift in Sources */,
+				A83043202C40984C00150488 /* HomeView.swift in Sources */,
 				A83042DE2C4079DA00150488 /* anciosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
