@@ -25,6 +25,7 @@
 		A830431B2C40975600150488 /* SermonVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SermonVideosView.swift; sourceTree = "<group>"; };
 		A830431D2C40981700150488 /* JuboView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuboView.swift; sourceTree = "<group>"; };
 		A830431F2C40984C00150488 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = ../../../Desktop/Chapter24/JRNLSwiftUI/JRNLSwiftUI/HomeView.swift; sourceTree = "<group>"; };
+		A83043222C409B8F00150488 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,12 +59,11 @@
 			isa = PBXGroup;
 			children = (
 				A830431F2C40984C00150488 /* HomeView.swift */,
+				A83043212C409B8400150488 /* View */,
 				A83042DD2C4079DA00150488 /* anciosApp.swift */,
 				A83042DF2C4079DA00150488 /* ContentView.swift */,
 				A83042E12C4079DB00150488 /* Assets.xcassets */,
 				A83042E32C4079DB00150488 /* Preview Content */,
-				A830431B2C40975600150488 /* SermonVideosView.swift */,
-				A830431D2C40981700150488 /* JuboView.swift */,
 			);
 			path = ancios;
 			sourceTree = "<group>";
@@ -74,6 +74,16 @@
 				A83042E42C4079DB00150488 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A83043212C409B8400150488 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A830431B2C40975600150488 /* SermonVideosView.swift */,
+				A830431D2C40981700150488 /* JuboView.swift */,
+				A83043222C409B8F00150488 /* HomeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
