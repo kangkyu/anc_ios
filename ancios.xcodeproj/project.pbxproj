@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A80D9FDF2C40A0C7004108E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D9FDE2C40A0C7004108E0 /* HomeView.swift */; };
+		A80D9FE12C40B8D9004108E0 /* ChurchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D9FE02C40B8D9004108E0 /* ChurchAPI.swift */; };
+		A80D9FE42C40BAB6004108E0 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D9FE32C40BAB6004108E0 /* Video.swift */; };
 		A83042DE2C4079DA00150488 /* anciosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83042DD2C4079DA00150488 /* anciosApp.swift */; };
 		A83042E02C4079DA00150488 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83042DF2C4079DA00150488 /* ContentView.swift */; };
 		A83042E22C4079DB00150488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83042E12C4079DB00150488 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		A80D9FDE2C40A0C7004108E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A80D9FE02C40B8D9004108E0 /* ChurchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchAPI.swift; sourceTree = "<group>"; };
+		A80D9FE32C40BAB6004108E0 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		A83042DA2C4079DA00150488 /* ancios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ancios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83042DD2C4079DA00150488 /* anciosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = anciosApp.swift; sourceTree = "<group>"; };
 		A83042DF2C4079DA00150488 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A80D9FE22C40BA9F004108E0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A80D9FE02C40B8D9004108E0 /* ChurchAPI.swift */,
+				A80D9FE32C40BAB6004108E0 /* Video.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		A83042D12C4079DA00150488 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +75,7 @@
 				A83042DF2C4079DA00150488 /* ContentView.swift */,
 				A83042E12C4079DB00150488 /* Assets.xcassets */,
 				A83042E32C4079DB00150488 /* Preview Content */,
+				A80D9FE22C40BA9F004108E0 /* Data */,
 			);
 			path = ancios;
 			sourceTree = "<group>";
@@ -155,9 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A830431E2C40981700150488 /* JuboView.swift in Sources */,
+				A80D9FE12C40B8D9004108E0 /* ChurchAPI.swift in Sources */,
 				A83042E02C4079DA00150488 /* ContentView.swift in Sources */,
 				A830431C2C40975600150488 /* SermonVideosView.swift in Sources */,
 				A80D9FDF2C40A0C7004108E0 /* HomeView.swift in Sources */,
+				A80D9FE42C40BAB6004108E0 /* Video.swift in Sources */,
 				A83042DE2C4079DA00150488 /* anciosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
