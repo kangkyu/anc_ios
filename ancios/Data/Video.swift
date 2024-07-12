@@ -8,7 +8,8 @@
 import Foundation
 
 struct Video: Identifiable, Decodable {
-    let id: String
+    let id: Int
+    let youtube_id: String
     let title: String
     let thumbnail_url: String
 }

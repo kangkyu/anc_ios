@@ -55,13 +55,37 @@ struct VideoRow: View {
     let video: Video
 
     var body: some View {
-        VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: video.thumbnail_url)).frame(width: 128, height: 128)
-            Text(video.title)
-                .font(.headline)
-            Text(video.id)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+        HStack(alignment: .top) {
+            AsyncImage(url: URL(string: video.thumbnail_url)) { image in
+                image.resizable()
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .aspectRatio(nil, contentMode: .fill)
+                                .clipped()
+                    .allowsHitTesting(false)
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 178, height: 89)
+            VStack(alignment: .trailing) {
+                Text(video.title)
+                    .font(.headline)
+            }
+        }
+        .onTapGesture {
+            openYouTube(videoId: video.youtube_id)
+        }
+    }
+}
+
+func openYouTube(videoId: String) {
+    let urlStringYouTube = "youtube://watch?v=\(videoId)"
+    let urlStringSafari = "https://youtu.be/\(videoId)"
+
+    if let urlYouTube = URL(string: urlStringYouTube), let urlSafari = URL(string: urlStringSafari) {
+        if UIApplication.shared.canOpenURL(urlYouTube) {
+            UIApplication.shared.open(urlYouTube, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.open(urlSafari, options: [:], completionHandler: nil)
         }
     }
 }
