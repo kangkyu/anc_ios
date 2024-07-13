@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-
-import SwiftUI
-
 struct SermonVideosView: View {
     @State private var videos: [Video] = []
     @State private var isLoading = false
@@ -37,7 +34,7 @@ struct SermonVideosView: View {
 
     private func fetchVideos() {
         isLoading = true
-        getVideos { result in
+        ChurchAPI.shared.getVideos { result in
             DispatchQueue.main.async {
                 isLoading = false
                 switch result {

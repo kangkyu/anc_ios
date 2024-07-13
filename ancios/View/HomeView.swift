@@ -28,7 +28,7 @@ struct HomeView: View {
                 .multilineTextAlignment(.center)
                 .font(.headline)
                 .onTapGesture {
-                    openUrlInExternalBrowser(urlStringSafari: "https://maps.app.goo.gl/dHNZP3vGJDtU7d3L6")
+                    openUrlInExternalBrowser(url: "https://maps.app.goo.gl/dHNZP3vGJDtU7d3L6")
                 }
         }
         .navigationTitle("안내")
@@ -44,11 +44,11 @@ struct HomeView: View {
 func openSafari() {
     let urlString = "https://anconnuri.com"
 
-    openUrlInExternalBrowser(urlStringSafari: urlString)
+    openUrlInExternalBrowser(url: urlString)
 }
 
-func openUrlInExternalBrowser(urlStringSafari: String) {
-    if let urlSafari = URL(string: urlStringSafari) {
+func openUrlInExternalBrowser(url: String) {
+    if let urlSafari = URL(string: url) {
         if UIApplication.shared.canOpenURL(urlSafari) {
             UIApplication.shared.open(urlSafari, options: [:], completionHandler: nil)
         }
