@@ -158,9 +158,3 @@ struct ZoomableImageView: View {
         }
     }
 }
-
-struct ZoomableImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZoomableImageView(imageURL: "https://example.com/image1.jpg", imageURL2: "https://example.com/image2.jpg")
-    }
-}
