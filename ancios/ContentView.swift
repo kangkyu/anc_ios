@@ -32,7 +32,7 @@ struct ContentView: View {
                 HomeView()
             }
             .tabItem {
-                Label("안내", image: "jubo")
+                Label("안내", image: "info")
             }
             .tag(2)
         }
