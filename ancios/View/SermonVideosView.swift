@@ -16,17 +16,24 @@ struct SermonVideosView: View {
         VStack {
             if isLoading {
                 ProgressView("Loading...")
+                    .frame(maxWidth: .infinity) // Ensure it takes full width
             } else if let error = error {
                 Text("Error: \(error.localizedDescription)")
+                    .frame(maxWidth: .infinity) // Ensure it takes full width
+                    .multilineTextAlignment(.center) // Center the text
             } else if videos.isEmpty {
                 Text("No videos available")
+                    .frame(maxWidth: .infinity) // Ensure it takes full width
+                    .multilineTextAlignment(.center) // Center the text
             } else {
                 List(videos) { video in
                     VideoRow(video: video)
                 }
+                .frame(maxWidth: .infinity)
             }
         }
         .navigationTitle("설교")
+        .frame(maxWidth: .infinity) // Ensure the VStack takes full width
         .onAppear {
             fetchVideos()
         }
@@ -55,14 +62,14 @@ struct VideoRow: View {
         HStack(alignment: .top) {
             AsyncImage(url: URL(string: video.thumbnail_url)) { image in
                 image.resizable()
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .aspectRatio(nil, contentMode: .fill)
+                    .frame(width: 180, height: 100)
                                 .clipped()
                     .allowsHitTesting(false)
             } placeholder: {
                 ProgressView()
+                    .frame(width: 180, height: 100)
             }
-            .frame(width: 178, height: 89)
             VStack(alignment: .trailing) {
                 Text(video.title)
                     .font(.headline)
