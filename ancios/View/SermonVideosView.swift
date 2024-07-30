@@ -23,7 +23,7 @@ struct SermonVideosView: View {
             } else {
                 List(videos) { video in
                     VideoRow(video: video)
-                }
+                }.padding(6)
             }
         }
         .navigationTitle("설교")
@@ -55,14 +55,14 @@ struct VideoRow: View {
         HStack(alignment: .top) {
             AsyncImage(url: URL(string: video.thumbnail_url)) { image in
                 image.resizable()
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .aspectRatio(nil, contentMode: .fill)
+                    .frame(width: 180, height: 100)
                                 .clipped()
                     .allowsHitTesting(false)
             } placeholder: {
                 ProgressView()
+                    .frame(width: 180, height: 100)
             }
-            .frame(width: 178, height: 89)
             VStack(alignment: .trailing) {
                 Text(video.title)
                     .font(.headline)

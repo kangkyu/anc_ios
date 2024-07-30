@@ -16,7 +16,7 @@ struct ContentView: View {
                 SermonVideosView()
             }
             .tabItem {
-                Label("설교", image: .sermons)
+                Label("설교", image: "sermons")
             }
             .tag(0)
             
@@ -24,7 +24,7 @@ struct ContentView: View {
                 JuboView()
             }
             .tabItem {
-                Label("주보", image: .jubo)
+                Label("주보", image: "jubo")
             }
             .tag(1)
             
@@ -32,7 +32,7 @@ struct ContentView: View {
                 HomeView()
             }
             .tabItem {
-                Label("안내", image: .info)
+                Label("안내", image: "jubo")
             }
             .tag(2)
         }

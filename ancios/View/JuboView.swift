@@ -14,7 +14,7 @@ struct JuboView: View {
             } else if urls.isEmpty {
                 Text("No jubo images available")
             } else {
-                ZoomableImageView(imageURL: urls[0], imageURL2: urls[1])
+                ZoomableDoubleImageView(imageURL1: urls[0], imageURL2: urls[1])
             }
         }
         .navigationTitle("주보")
@@ -39,8 +39,8 @@ struct JuboView: View {
     }
 }
 
-struct ZoomableImageView: View {
-    let imageURL: String
+struct ZoomableDoubleImageView: View {
+    let imageURL1: String
     let imageURL2: String
     
     @State private var scale: CGFloat = 1.0
@@ -54,31 +54,21 @@ struct ZoomableImageView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ScrollView([.horizontal, .vertical], showsIndicators: false) {
+            ZStack {
                 VStack(spacing: 0) {
-                    zoomableImage(url: imageURL, size: $image1Size)
+                    zoomableImage(url: imageURL1, size: $image1Size)
                     zoomableImage(url: imageURL2, size: $image2Size)
                 }
-                .background(GeometryReader { contentGeometry in
-                    Color.clear.onAppear {
-                        // Adjust the offset to ensure the content is scrollable
-                        validateOffset(contentGeometry: contentGeometry, parentGeometry: geometry)
-                    }
-                })
-                .frame(
-                    width: geometry.size.width * scale,
-                    height: totalImageHeight * scale
-                )
+                .frame(width: geometry.size.width, height: totalImageHeight)
                 .scaleEffect(scale)
-                .offset(x: offset.width, y: offset.height)
+                .offset(offset)
                 .gesture(
                     SimultaneousGesture(
                         MagnificationGesture()
                             .onChanged { value in
-                                scale = min(max(scale * value, minScale), maxScale)
-                            }
-                            .onEnded { _ in
-                                validateOffset(contentGeometry: geometry, parentGeometry: geometry)
+                                let delta = value / scale
+                                scale = min(max(scale * delta, minScale), maxScale)
+                                validateOffset(geometry: geometry)
                             },
                         DragGesture()
                             .onChanged { value in
@@ -89,11 +79,12 @@ struct ZoomableImageView: View {
                             }
                             .onEnded { _ in
                                 lastOffset = offset
-                                validateOffset(contentGeometry: geometry, parentGeometry: geometry)
+                                validateOffset(geometry: geometry)
                             }
                     )
                 )
             }
+            .clipped()
             .gesture(
                 TapGesture(count: 2)
                     .onEnded {
@@ -105,6 +96,7 @@ struct ZoomableImageView: View {
                                 scale = min(maxScale, scale * 2)
                             }
                             lastOffset = offset
+                            validateOffset(geometry: geometry)
                         }
                     }
             )
@@ -141,16 +133,18 @@ struct ZoomableImageView: View {
         }
     }
 
-    private func validateOffset(contentGeometry: GeometryProxy, parentGeometry: GeometryProxy) {
-        let scaledWidth = parentGeometry.size.width * scale
+    private func validateOffset(geometry: GeometryProxy) {
+        let scaledWidth = geometry.size.width * scale
         let scaledHeight = totalImageHeight * scale
 
-        let maxOffsetX = max(0, (scaledWidth - parentGeometry.size.width) / 2)
-        let maxOffsetY = max(0, scaledHeight - parentGeometry.size.height)
+        // Calculate the maximum offset values
+        let maxOffsetX = (scaledWidth - geometry.size.width) / 2
+        let maxOffsetY = (scaledHeight - geometry.size.height) / 2
 
+        // Ensure the offset does not exceed the calculated limits
         var newOffset = offset
         newOffset.width = min(max(newOffset.width, -maxOffsetX), maxOffsetX)
-        newOffset.height = min(max(newOffset.height, -maxOffsetY), 0)
+        newOffset.height = min(max(newOffset.height, -maxOffsetY), maxOffsetY)
 
         withAnimation(.interactiveSpring()) {
             offset = newOffset
