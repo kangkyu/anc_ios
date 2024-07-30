@@ -106,8 +106,8 @@ struct ZoomableDoubleImageView: View {
     private var totalImageHeight: CGFloat {
         let aspectRatio1 = image1Size.width / max(image1Size.height, 1)
         let aspectRatio2 = image2Size.width / max(image2Size.height, 1)
-        let height1 = UIScreen.main.bounds.width / aspectRatio1
-        let height2 = UIScreen.main.bounds.width / aspectRatio2
+        let height1 = UIScreen.main.bounds.width / max(aspectRatio1, 1)
+        let height2 = UIScreen.main.bounds.width / max(aspectRatio2, 1)
         return height1 + height2
     }
     
@@ -116,6 +116,7 @@ struct ZoomableDoubleImageView: View {
             switch phase {
             case .empty:
                 ProgressView()
+                    .frame(maxWidth: .infinity, minHeight: 200)
             case .success(let image):
                 image
                     .resizable()
@@ -127,6 +128,7 @@ struct ZoomableDoubleImageView: View {
                     })
             case .failure:
                 Text("Failed to load image")
+                    .frame(maxWidth: .infinity, minHeight: 200)
             @unknown default:
                 EmptyView()
             }

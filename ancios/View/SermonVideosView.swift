@@ -16,17 +16,24 @@ struct SermonVideosView: View {
         VStack {
             if isLoading {
                 ProgressView("Loading...")
+                    .frame(maxWidth: .infinity) // Ensure it takes full width
             } else if let error = error {
                 Text("Error: \(error.localizedDescription)")
+                    .frame(maxWidth: .infinity) // Ensure it takes full width
+                    .multilineTextAlignment(.center) // Center the text
             } else if videos.isEmpty {
                 Text("No videos available")
+                    .frame(maxWidth: .infinity) // Ensure it takes full width
+                    .multilineTextAlignment(.center) // Center the text
             } else {
                 List(videos) { video in
                     VideoRow(video: video)
-                }.padding(6)
+                }
+                .frame(maxWidth: .infinity)
             }
         }
         .navigationTitle("설교")
+        .frame(maxWidth: .infinity) // Ensure the VStack takes full width
         .onAppear {
             fetchVideos()
         }
